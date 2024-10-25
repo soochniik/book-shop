@@ -1,0 +1,26 @@
+.header {
+    background-color: #F1F2EC;
+    padding: 20px;
+}
+.navList {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navItem {
+    display: flex;
+    flex-direction: row;
+    margin-right: 40px;
+}
+
+.navItem img {
+    margin-right: 50px;
+}
+
+.navItem input {
+    margin-top: auto;
+    margin-bottom: auto;
+}
