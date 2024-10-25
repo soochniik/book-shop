@@ -4,31 +4,31 @@ import sale from '../assets/Sale.svg';
 import book1 from '../assets/Book1.svg';
 import book2 from '../assets/Book2.svg';
 import nbook from '../assets/New.svg';
-import './home.css'
+import styles from './home.module.css';
 
 function Home() {
     return (
-        <div className="home"> 
-            <div className="sale">
+        <div className={styles.home}> 
+            <div className={styles.sale}>
                 <img src={sale} alt="Sale"/>
-                <div className="new">
+                <div className={styles.new}>
                     <h1>Новинка</h1>
                     <img src={nbook} alt="New"/>
                 </div>
             </div>
             <h1>Бестселлеры</h1>
-            <div className="books">
-                <div className="book">
-                    <div className="book-image">
+            <div className={styles.books}>
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
                         <img src={book1} alt="Book 1"/>
                     </div>
-                    <div className="book-price">
+                    <div className={styles.bookPrice}>
                         <p>999 ₽</p>
                     </div>
-                    <div className="book-title">
+                    <div className={styles.bookTitle}>
                         <p>Театр</p>
                     </div>
-                    <div className="book-author">
+                    <div className={styles.bookAuthor}>
                         <p>Сомерсет Моэм</p>
                     </div>
                     <Button
@@ -38,17 +38,17 @@ function Home() {
                         size="small"
                     />
                 </div>
-                <div className="book">
-                    <div className="book-image">
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
                         <img src={book1} alt="Book 1"/>
                     </div>
-                    <div className="book-price">
+                    <div className={styles.bookPrice}>
                         <p>999 ₽</p>
                     </div>
-                    <div className="book-title">
+                    <div className={styles.bookTitle}>
                         <p>Театр</p>
                     </div>
-                    <div className="book-author">
+                    <div className={styles.bookAuthor}>
                         <p>Сомерсет Моэм</p>
                     </div>
                     <Button
@@ -58,17 +58,17 @@ function Home() {
                         size="small"
                     />
                 </div>
-                <div className="book">
-                    <div className="book-image">
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
                         <img src={book1} alt="Book 1"/>
                     </div>
-                    <div className="book-price">
+                    <div className={styles.bookPrice}>
                         <p>999 ₽</p>
                     </div>
-                    <div className="book-title">
+                    <div className={styles.bookTitle}>
                         <p>Театр</p>
                     </div>
-                    <div className="book-author">
+                    <div className={styles.bookAuthor}>
                         <p>Сомерсет Моэм</p>
                     </div>
                     <Button
@@ -78,17 +78,17 @@ function Home() {
                         size="small"
                     />
                 </div>
-                <div className="book">
-                    <div className="book-image">
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
                         <img src={book1} alt="Book 1"/>
                     </div>
-                    <div className="book-price">
+                    <div className={styles.bookPrice}>
                         <p>999 ₽</p>
                     </div>
-                    <div className="book-title">
+                    <div className={styles.bookTitle}>
                         <p>Театр</p>
                     </div>
-                    <div className="book-author">
+                    <div className={styles.bookAuthor}>
                         <p>Сомерсет Моэм</p>
                     </div>
                     <Button
@@ -100,18 +100,18 @@ function Home() {
                 </div>
             </div>
             <h1>Рекомендуем</h1>
-            <div className="books">
-                <div className="book">
-                    <div className="book-image">
+            <div className={styles.books}>
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
                         <img src={book2} alt="Book 2"/>
                     </div>
-                    <div className="book-price">
+                    <div className={styles.bookPrice}>
                         <p>999 ₽</p>
                     </div>
-                    <div className="book-title">
+                    <div className={styles.bookTitle}>
                         <p>Дама с камелиями</p>
                     </div>
-                    <div className="book-author">
+                    <div className={styles.bookAuthor}>
                         <p>Александр Дюма</p>
                     </div>
                     <Button
@@ -121,17 +121,17 @@ function Home() {
                         size="small"
                     />
                 </div>
-                <div className="book">
-                    <div className="book-image">
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
                         <img src={book2} alt="Book 2"/>
                     </div>
-                    <div className="book-price">
+                    <div className={styles.bookPrice}>
                         <p>999 ₽</p>
                     </div>
-                    <div className="book-title">
+                    <div className={styles.bookTitle}>
                         <p>Дама с камелиями</p>
                     </div>
-                    <div className="book-author">
+                    <div className={styles.bookAuthor}>
                         <p>Александр Дюма</p>
                     </div>
                     <Button
@@ -141,17 +141,17 @@ function Home() {
                         size="small"
                     />
                 </div>
-                <div className="book">
-                    <div className="book-image">
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
                         <img src={book2} alt="Book 2"/>
                     </div>
-                    <div className="book-price">
+                    <div className={styles.bookPrice}>
                         <p>999 ₽</p>
                     </div>
-                    <div className="book-title">
+                    <div className={styles.bookTitle}>
                         <p>Дама с камелиями</p>
                     </div>
-                    <div className="book-author">
+                    <div className={styles.bookAuthor}>
                         <p>Александр Дюма</p>
                     </div>
                     <Button
@@ -161,17 +161,17 @@ function Home() {
                         size="small"
                     />
                 </div>
-                <div className="book">
-                    <div className="book-image">
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
                         <img src={book2} alt="Book 2"/>
                     </div>
-                    <div className="book-price">
+                    <div className={styles.bookPrice}>
                         <p>999 ₽</p>
                     </div>
-                    <div className="book-title">
+                    <div className={styles.bookTitle}>
                         <p>Дама с камелиями</p>
                     </div>
-                    <div className="book-author">
+                    <div className={styles.bookAuthor}>
                         <p>Александр Дюма</p>
                     </div>
                     <Button
