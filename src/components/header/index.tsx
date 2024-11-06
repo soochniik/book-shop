@@ -35,12 +35,6 @@ export const Header = () => {
                             size="small"
                         />
                         <Button
-                            label="Каталог"
-                            onClick={() => navigate('/catalog')}
-                            color="menu"
-                            size="small"
-                        />
-                        <Button
                             label="Корзина"
                             onClick={() => navigate('/shopping-cart')}
                             color="menu"

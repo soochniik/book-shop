@@ -1,5 +1,6 @@
-import React from 'react';
+
 import { Button } from '../components/button';
+import { useNavigate } from 'react-router-dom';
 import sale from '../assets/Sale.svg';
 import book1 from '../assets/Book1.svg';
 import book2 from '../assets/Book2.svg';
@@ -7,6 +8,9 @@ import nbook from '../assets/New.svg';
 import styles from './home.module.css';
 
 function Home() {
+
+    const navigate = useNavigate();
+
     return (
         <div className={styles.home}> 
             <div className={styles.sale}>
@@ -59,6 +63,7 @@ function Home() {
                     />
                 </div>
                 <div className={styles.book}>
+                    onClick
                     <div className={styles.bookImage}>
                         <img src={book1} alt="Book 1"/>
                     </div>
@@ -101,7 +106,7 @@ function Home() {
             </div>
             <h1>Рекомендуем</h1>
             <div className={styles.books}>
-                <div className={styles.book}>
+                <div className={styles.book} onClick={() => navigate('/book')}>
                     <div className={styles.bookImage}>
                         <img src={book2} alt="Book 2"/>
                     </div>

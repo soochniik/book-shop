@@ -44,6 +44,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding-right: 15%;
+    cursor: pointer;
 }
 
 .book p {
