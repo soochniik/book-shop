@@ -13,7 +13,7 @@ function Cart(){
                 color="menu"
                 size="small"
             />
-            <h1>Корзина</h1>
+            <h1>Оформление заказа</h1>
         </div>
     );
 }
