@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Cart from './pages/Cart';
+import Order from './pages/Order';
 import Book from './pages/Book'
 import { Header } from './components/header';
 import './global.css';
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shopping-cart" element={<Cart />} />
+        <Route path="/order" element={<Order />} />
         <Route path="/book" element={<Book />} />
       </Routes>
     </BrowserRouter>

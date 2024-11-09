@@ -54,8 +54,8 @@ function Book() {
                 <p>999 ₽</p>
             </div>
             <Button
-                label="В корзину"
-                onClick={() => alert('Товар добавлен в корзину!')}
+                label="Оформить заказ"
+                onClick={() => navigate('/order')}
                 color="button"
                 size="small"
             />

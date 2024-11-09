@@ -36,8 +36,8 @@ function Home() {
                         <p>Сомерсет Моэм</p>
                     </div>
                     <Button
-                        label="В корзину"
-                        onClick={() => alert('Товар добавлен в корзину!')}
+                        label="Оформить заказ"
+                        onClick={() => navigate('/order')}
                         color="button"
                         size="small"
                     />
@@ -56,8 +56,8 @@ function Home() {
                         <p>Сомерсет Моэм</p>
                     </div>
                     <Button
-                        label="В корзину"
-                        onClick={() => alert('Товар добавлен в корзину!')}
+                        label="Оформить заказ"
+                        onClick={() => navigate('/order')}
                         color="button"
                         size="small"
                     />
@@ -76,8 +76,8 @@ function Home() {
                         <p>Сомерсет Моэм</p>
                     </div>
                     <Button
-                        label="В корзину"
-                        onClick={() => alert('Товар добавлен в корзину!')}
+                        label="Оформить заказ"
+                        onClick={() => navigate('/order')}
                         color="button"
                         size="small"
                     />
@@ -96,8 +96,8 @@ function Home() {
                         <p>Сомерсет Моэм</p>
                     </div>
                     <Button
-                        label="В корзину"
-                        onClick={() => alert('Товар добавлен в корзину!')}
+                        label="Оформить заказ"
+                        onClick={() => navigate('/order')}
                         color="button"
                         size="small"
                     />
@@ -119,8 +119,8 @@ function Home() {
                         <p>Александр Дюма</p>
                     </div>
                     <Button
-                        label="В корзину"
-                        onClick={() => alert('Товар добавлен в корзину!')}
+                        label="Оформить заказ"
+                        onClick={() => navigate('/order')}
                         color="button"
                         size="small"
                     />
@@ -139,8 +139,8 @@ function Home() {
                         <p>Александр Дюма</p>
                     </div>
                     <Button
-                        label="В корзину"
-                        onClick={() => alert('Товар добавлен в корзину!')}
+                        label="Оформить заказ"
+                        onClick={() => navigate('/order')}
                         color="button"
                         size="small"
                     />
@@ -159,8 +159,8 @@ function Home() {
                         <p>Александр Дюма</p>
                     </div>
                     <Button
-                        label="В корзину"
-                        onClick={() => alert('Товар добавлен в корзину!')}
+                        label="Оформить заказ"
+                        onClick={() => navigate('/order')}
                         color="button"
                         size="small"
                     />
@@ -179,8 +179,8 @@ function Home() {
                         <p>Александр Дюма</p>
                     </div>
                     <Button
-                        label="В корзину"
-                        onClick={() => alert('Товар добавлен в корзину!')}
+                        label="Оформить заказ"
+                        onClick={() => navigate('/order')}
                         color="button"
                         size="small"
                     />

@@ -1,0 +1,50 @@
+.cart {
+    background-color: #F1F2EC;
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 1%;
+    padding-top: 2%;
+}
+
+.cart h1 {
+    padding-top: 1.5%;
+    padding-bottom: 4%;
+}
+
+.book {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1.5%;
+    border-bottom: solid #E4DBD2;
+    width: 70%;
+}
+
+.bookAbout {
+    padding-left: 12%;
+}
+
+.bookPrice {
+    color: #6C3B1D;
+    font-size: 30px;
+    white-space: nowrap;
+    padding-left: 45%;
+}
+
+.bookTitle {
+    color: #845343;
+    font-size: 20px;
+    white-space: nowrap;
+    padding-bottom: 8%;
+}
+
+.bookAuthor {
+    color: #845343;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.order {
+    margin-top: 3.5%;
+}

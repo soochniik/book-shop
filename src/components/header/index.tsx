@@ -36,7 +36,7 @@ export const Header = () => {
                         />
                         <Button
                             label="Корзина"
-                            onClick={() => navigate('/shopping-cart')}
+                            onClick={() => navigate('/order')}
                             color="menu"
                             size="small"
                         />
