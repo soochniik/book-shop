@@ -5,7 +5,7 @@ import sale from '../assets/Sale.svg';
 import book1 from '../assets/Book1.svg';
 import book2 from '../assets/Book2.svg';
 import nbook from '../assets/New.svg';
-import styles from './home.module.css';
+import styles from './styles/home.module.css';
 
 function Home() {
 
@@ -63,7 +63,6 @@ function Home() {
                     />
                 </div>
                 <div className={styles.book}>
-                    onClick
                     <div className={styles.bookImage}>
                         <img src={book1} alt="Book 1"/>
                     </div>

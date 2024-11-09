@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/button';
-import styles from './book.module.css';
+import styles from './styles/book.module.css';
 import bookImage from '../assets/Book.svg';
 
 function Book() {
