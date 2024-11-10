@@ -11,7 +11,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .new {
@@ -19,11 +20,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 10%;
+    padding-left: 20%;
 }
 
 .new h1 {
     font-size: 1.5em;
+}
+
+.new img {
+    padding-top: 8%;
 }
 
 .home h1 {

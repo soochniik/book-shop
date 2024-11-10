@@ -1,15 +1,40 @@
-
+import React from 'react';
 import { Button } from '../components/button';
 import { useNavigate } from 'react-router-dom';
 import sale from '../assets/Sale.svg';
-import book1 from '../assets/Book1.svg';
-import book2 from '../assets/Book2.svg';
 import nbook from '../assets/New.svg';
 import styles from './styles/home.module.css';
+import { booksData } from './booksData';
 
-function Home() {
-
+const Home: React.FC = () => {
     const navigate = useNavigate();
+
+    const renderBooks = (category: 'bestsellers' | 'recommended') => {
+        return booksData
+            .filter(book => book.category === category)
+            .map(book => (
+                <div key={book.id} className={styles.book} onClick={() => navigate(`/book?id=${book.id}`)}>
+                    <div className={styles.bookImage}>
+                        <img src={book.image} alt={book.title} />
+                    </div>
+                    <div className={styles.bookPrice}>
+                        <p>{book.price} ₽</p>
+                    </div>
+                    <div className={styles.bookTitle}>
+                        <p>{book.title}</p>
+                    </div>
+                    <div className={styles.bookAuthor}>
+                        <p>{book.author}</p>
+                    </div>
+                    <Button
+                        label="Оформить заказ"
+                        onClick={() => navigate(`/order?id=${book.id}`)}
+                        color="button"
+                        size="small"
+                    />
+                </div>
+            ));
+    };
 
     return (
         <div className={styles.home}> 
@@ -22,172 +47,14 @@ function Home() {
             </div>
             <h1>Бестселлеры</h1>
             <div className={styles.books}>
-                <div className={styles.book}>
-                    <div className={styles.bookImage}>
-                        <img src={book1} alt="Book 1"/>
-                    </div>
-                    <div className={styles.bookPrice}>
-                        <p>999 ₽</p>
-                    </div>
-                    <div className={styles.bookTitle}>
-                        <p>Театр</p>
-                    </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Сомерсет Моэм</p>
-                    </div>
-                    <Button
-                        label="Оформить заказ"
-                        onClick={() => navigate('/order')}
-                        color="button"
-                        size="small"
-                    />
-                </div>
-                <div className={styles.book}>
-                    <div className={styles.bookImage}>
-                        <img src={book1} alt="Book 1"/>
-                    </div>
-                    <div className={styles.bookPrice}>
-                        <p>999 ₽</p>
-                    </div>
-                    <div className={styles.bookTitle}>
-                        <p>Театр</p>
-                    </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Сомерсет Моэм</p>
-                    </div>
-                    <Button
-                        label="Оформить заказ"
-                        onClick={() => navigate('/order')}
-                        color="button"
-                        size="small"
-                    />
-                </div>
-                <div className={styles.book}>
-                    <div className={styles.bookImage}>
-                        <img src={book1} alt="Book 1"/>
-                    </div>
-                    <div className={styles.bookPrice}>
-                        <p>999 ₽</p>
-                    </div>
-                    <div className={styles.bookTitle}>
-                        <p>Театр</p>
-                    </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Сомерсет Моэм</p>
-                    </div>
-                    <Button
-                        label="Оформить заказ"
-                        onClick={() => navigate('/order')}
-                        color="button"
-                        size="small"
-                    />
-                </div>
-                <div className={styles.book}>
-                    <div className={styles.bookImage}>
-                        <img src={book1} alt="Book 1"/>
-                    </div>
-                    <div className={styles.bookPrice}>
-                        <p>999 ₽</p>
-                    </div>
-                    <div className={styles.bookTitle}>
-                        <p>Театр</p>
-                    </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Сомерсет Моэм</p>
-                    </div>
-                    <Button
-                        label="Оформить заказ"
-                        onClick={() => navigate('/order')}
-                        color="button"
-                        size="small"
-                    />
-                </div>
+                {renderBooks('bestsellers')}
             </div>
             <h1>Рекомендуем</h1>
             <div className={styles.books}>
-                <div className={styles.book} onClick={() => navigate('/book')}>
-                    <div className={styles.bookImage}>
-                        <img src={book2} alt="Book 2"/>
-                    </div>
-                    <div className={styles.bookPrice}>
-                        <p>999 ₽</p>
-                    </div>
-                    <div className={styles.bookTitle}>
-                        <p>Дама с камелиями</p>
-                    </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Александр Дюма</p>
-                    </div>
-                    <Button
-                        label="Оформить заказ"
-                        onClick={() => navigate('/order')}
-                        color="button"
-                        size="small"
-                    />
-                </div>
-                <div className={styles.book}>
-                    <div className={styles.bookImage}>
-                        <img src={book2} alt="Book 2"/>
-                    </div>
-                    <div className={styles.bookPrice}>
-                        <p>999 ₽</p>
-                    </div>
-                    <div className={styles.bookTitle}>
-                        <p>Дама с камелиями</p>
-                    </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Александр Дюма</p>
-                    </div>
-                    <Button
-                        label="Оформить заказ"
-                        onClick={() => navigate('/order')}
-                        color="button"
-                        size="small"
-                    />
-                </div>
-                <div className={styles.book}>
-                    <div className={styles.bookImage}>
-                        <img src={book2} alt="Book 2"/>
-                    </div>
-                    <div className={styles.bookPrice}>
-                        <p>999 ₽</p>
-                    </div>
-                    <div className={styles.bookTitle}>
-                        <p>Дама с камелиями</p>
-                    </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Александр Дюма</p>
-                    </div>
-                    <Button
-                        label="Оформить заказ"
-                        onClick={() => navigate('/order')}
-                        color="button"
-                        size="small"
-                    />
-                </div>
-                <div className={styles.book}>
-                    <div className={styles.bookImage}>
-                        <img src={book2} alt="Book 2"/>
-                    </div>
-                    <div className={styles.bookPrice}>
-                        <p>999 ₽</p>
-                    </div>
-                    <div className={styles.bookTitle}>
-                        <p>Дама с камелиями</p>
-                    </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Александр Дюма</p>
-                    </div>
-                    <Button
-                        label="Оформить заказ"
-                        onClick={() => navigate('/order')}
-                        color="button"
-                        size="small"
-                    />
-                </div>
+                {renderBooks('recommended')}
             </div>
         </div>
     );
-}
+};
 
 export default Home;

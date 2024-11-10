@@ -1,6 +1,7 @@
 .header {
     background-color: #F1F2EC;
-    padding: 20px;
+    padding: 1% 2%;
+    border-bottom: solid #E4DBD2;
 }
 .navList {
     display: flex;
@@ -14,14 +15,5 @@
 .navItem {
     display: flex;
     flex-direction: row;
-    margin-right: 40px;
-}
-
-.navItem img {
-    margin-right: 50px;
-}
-
-.navItem input {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-right: 5%;
 }

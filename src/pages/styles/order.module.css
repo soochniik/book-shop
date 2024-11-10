@@ -22,7 +22,7 @@
 }
 
 .bookAbout {
-    padding-left: 12%;
+    padding-left: 10%;
 }
 
 .bookPrice {
@@ -46,5 +46,13 @@
 }
 
 .order {
+    padding-top: 2%;
+}
+
+.order button{
+    margin-top: 8%;
+}
+
+.order input{
     margin-top: 3.5%;
 }
