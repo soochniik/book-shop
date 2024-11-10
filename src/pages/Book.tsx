@@ -1,10 +1,26 @@
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../components/button';
 import styles from './styles/book.module.css';
-import bookImage from '../assets/Book.svg';
+import { booksData } from './booksData';
+import type { Book } from './booksData';
 
 function Book() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const [book, setBook] = useState<Book | null>(null);
+
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const bookId = queryParams.get('id');
+
+        if (bookId) {
+            const selectedBook = booksData.find(book => book.id === parseInt(bookId, 10));
+            if (selectedBook) {
+                setBook(selectedBook);
+            }
+        }
+    }, [location.search]);
 
     return (
         <div className={styles.book}>
@@ -14,51 +30,57 @@ function Book() {
                 color="menu"
                 size="small"
             />
-            <h1>Дама с камелиями</h1>
-            <div className={styles.bookAuthor}>
-                <p>Александр Дюма</p>
-            </div>
-            <div className={styles.bookAbout}>
-                <div className={styles.bookImage}>
-                    <img src={bookImage} alt="BookImage" />
-                </div>
-                <div className={styles.about}>
-                    <div className={styles.bookDesc}>
-                        <p>Нестареющий роман о великой любви и страшной трагедии. Сюжет романа явился основой для одноименной пьесы, которая впоследствии многократно экранизировалась и послужила либретто к гениальной опере Джузеппе Верди «Травиата». Роман о любви прекрасной, смертельно больной «королевы полусвета» и юного аристократа – любви страстной, трагической, заведомо обреченной – не уступает по драматизму «Травиате» и превосходит даже лучшие экранизации.</p>
+            {book ? (
+                <>
+                    <h1>{book.title}</h1>
+                    <div className={styles.bookAuthor}>
+                        <p>{book.author}</p>
                     </div>
-                    <div className={styles.bookCharact}>
-                        <div className={styles.ch1}>
-                            <p>Издательство</p>
-                            <p>Издательский бренд</p>
-                            <p>Серия</p>
-                            <p>Год издания</p>
-                            <p>Количество страниц</p>
-                            <p>Тип обложки</p>
-                            <p>Тираж</p>
-                            <p>Возрастные ограничения</p>
+                    <div className={styles.bookAbout}>
+                        <div className={styles.bookImage}>
+                            <img src={book.imagebig} alt={book.title} />
                         </div>
-                        <div className={styles.ch2}>
-                            <p>АСТ</p>
-                            <p>Neoclassic</p>
-                            <p>Эксклюзивная классика</p>
-                            <p>2024</p>
-                            <p>320</p>
-                            <p>Мягкий переплет</p>
-                            <p>4000</p>
-                            <p>16+</p>
+                        <div className={styles.about}>
+                            <div className={styles.bookDesc}>
+                                <p>{book.desc}</p>
+                            </div>
+                            <div className={styles.bookCharact}>
+                                <div className={styles.ch1}>
+                                    <p>Издательство</p>
+                                    <p>Издательский бренд</p>
+                                    <p>Серия</p>
+                                    <p>Год издания</p>
+                                    <p>Количество страниц</p>
+                                    <p>Тип обложки</p>
+                                    <p>Тираж</p>
+                                    <p>Возрастные ограничения</p>
+                                </div>
+                                <div className={styles.ch2}>
+                                    <p>{book.publish}</p>
+                                    <p>{book.brand}</p>
+                                    <p>{book.series}</p>
+                                    <p>{book.year}</p>
+                                    <p>{book.pages}</p>
+                                    <p>{book.cover}</p>
+                                    <p>{book.edition}</p>
+                                    <p>{book.age}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className={styles.bookPrice1}>
-                <p>999 ₽</p>
-            </div>
-            <Button
-                label="Оформить заказ"
-                onClick={() => navigate('/order')}
-                color="button"
-                size="small"
-            />
+                    <div className={styles.bookPrice1}>
+                        <p>{book.price} ₽</p>
+                    </div>
+                    <Button
+                        label="Оформить заказ"
+                        onClick={() => navigate(`/order?id=${book.id}`)}
+                        color="button"
+                        size="small"
+                    />
+                </>
+            ) : (
+                <p>Книга не найдена</p>
+            )}
         </div>
     );
 }

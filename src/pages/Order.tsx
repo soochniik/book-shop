@@ -1,20 +1,33 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../components/button';
 import Input from '../components/input';
 import styles from './styles/order.module.css';
-import book2 from '../assets/Book2.svg';
+import { booksData, Book } from './booksData';
 
-function Order(){
-
+function Order() {
     const navigate = useNavigate();
+    const location = useLocation();
     const [inputValue, setInputValue] = useState<string>('');
+    const [book, setBook] = useState<Book | null>(null);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
     };
 
-    return(
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const bookId = queryParams.get('id');
+
+        if (bookId) {
+            const selectedBook = booksData.find(book => book.id === parseInt(bookId, 10));
+            if (selectedBook) {
+                setBook(selectedBook);
+            }
+        }
+    }, [location.search]);
+
+    return (
         <div className={styles.cart}>
             <Button
                 label="Назад"
@@ -23,23 +36,27 @@ function Order(){
                 size="small"
             />
             <h1>Оформление заказа</h1>
-            <div className={styles.book}>
-                <div className={styles.bookImage}>
-                    <img src={book2} alt="Book 2"/>
-                </div>
-                <div className={styles.bookAbout}>
-                    <div className={styles.bookTitle}>
-                        <p>Дама с камелиями</p>
+            {book ? (
+                <div className={styles.book}>
+                    <div className={styles.bookImage}>
+                        <img src={book.image} alt={book.title} />
                     </div>
-                    <div className={styles.bookAuthor}>
-                        <p>Александр Дюма</p>
+                    <div className={styles.bookAbout}>
+                        <div className={styles.bookTitle}>
+                            <p>{book.title}</p>
+                        </div>
+                        <div className={styles.bookAuthor}>
+                            <p>{book.author}</p>
+                        </div>
+                    </div>
+                    <div className={styles.bookPrice}>
+                        <p>{book.price} ₽</p>
                     </div>
                 </div>
-                <div className={styles.bookPrice}>
-                    <p>999 ₽</p>
-                </div>
-            </div>
-            
+            ) : (
+                <p>Книга не найдена</p>
+            )}
+
             <div className={styles.order}>
                 <Input
                     label="Имя"

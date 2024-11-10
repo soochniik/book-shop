@@ -13,8 +13,8 @@ const Home: React.FC = () => {
         return booksData
             .filter(book => book.category === category)
             .map(book => (
-                <div key={book.id} className={styles.book} onClick={() => navigate(`/book?id=${book.id}`)}>
-                    <div className={styles.bookImage}>
+                <div key={book.id} className={styles.book}>
+                    <div className={styles.bookImage} onClick={() => navigate(`/book?id=${book.id}`)}>
                         <img src={book.image} alt={book.title} />
                     </div>
                     <div className={styles.bookPrice}>
