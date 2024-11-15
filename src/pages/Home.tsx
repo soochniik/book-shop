@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../components/button';
 import { useNavigate } from 'react-router-dom';
 import sale from '../assets/Sale.svg';
-import nbook from '../assets/New.svg';
+import nbook from '../assets/Book13.svg';
 import styles from './styles/home.module.css';
 import { booksData } from './booksData';
 
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
                 <img src={sale} alt="Sale"/>
                 <div className={styles.new}>
                     <h1>Новинка</h1>
-                    <img src={nbook} alt="New"/>
+                    <img src={nbook} alt="New" onClick={() => navigate(`/book?id=2`)}/>
                 </div>
             </div>
             <h1>Бестселлеры</h1>

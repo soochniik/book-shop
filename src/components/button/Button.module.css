@@ -10,7 +10,13 @@
 .btn-button {
     background-color: #A18B76;
     color: white;
+    transition: box-shadow 0.2s ease;
 }
+
+.btn-button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 .btn-menu {
     background: none;
     border: none;

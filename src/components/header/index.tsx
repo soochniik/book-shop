@@ -22,8 +22,8 @@ export const Header = () => {
                             size="small"
                         />
                         <Button
-                            label="Корзина"
-                            onClick={() => navigate('/order')}
+                            label="О фестивалях"
+                            onClick={() => navigate('/fest')}
                             color="menu"
                             size="small"
                         />

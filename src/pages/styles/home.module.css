@@ -9,7 +9,6 @@
 .sale {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
     padding-top: 5%;
     padding-bottom: 5%;
@@ -20,15 +19,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 20%;
+    padding-left: 13%;
 }
 
 .new h1 {
     font-size: 1.5em;
+    margin-bottom: 8%;
 }
 
 .new img {
-    padding-top: 8%;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.new img:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .home h1 {
@@ -48,11 +53,19 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding-right: 15%;
-    cursor: pointer;
 }
 
 .bookImage {
     padding-bottom: 8%;
+    cursor: pointer;
+}
+
+.bookImage img {
+    transition: box-shadow 0.3s ease;
+}
+
+.bookImage img:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .bookPrice {
