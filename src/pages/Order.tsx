@@ -73,6 +73,11 @@ function Order() {
                     value={inputValue}
                     onChange={handleInputChange}
                 />
+                <Input
+                    label="E-mail"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                />
                 <Button
                     label="Оформить заказ"
                     onClick={() => alert('Заказ оформлен!')}

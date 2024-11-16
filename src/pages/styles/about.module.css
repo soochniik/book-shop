@@ -1,0 +1,62 @@
+.about {
+    background-color: #F1F2EC;
+    padding: 2% 9% 1% 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.about h1 {
+    padding-top: 1.5%;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 4%;
+    padding-top: 3%;
+}
+
+.text {
+    padding-left: 4%;
+}
+
+.text p{
+    font-family: 'Jura', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6C3B1D;
+    margin-bottom: 2%;
+}
+
+.text2 p{
+    margin-bottom: 0;
+}
+
+.featuresList {
+    list-style-type: disc;
+}
+
+.featuresList li {
+    font-family: 'Jura', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6C3B1D;
+}
+
+.contacts {
+    padding-bottom: 3%;
+    padding-top: 2%;
+}
+
+.contacts p{
+    font-size: 20px;
+    color: #6C3B1D;
+}
+
+.contacts button{
+    font-size: 20px;
+    color: #6C3B1D;
+}
