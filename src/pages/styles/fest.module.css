@@ -1,4 +1,4 @@
-.about {
+.fest {
     background-color: #F1F2EC;
     padding: 2% 9% 1% 2%;
     display: flex;
@@ -7,20 +7,16 @@
     justify-content: center;
 }
 
-.about h1 {
+.fest h1 {
     padding-top: 1.5%;
+    padding-bottom: 1.5%;
 }
 
-.welcome {
+.festimage {
+    padding-top: 2%;
+    padding-bottom: 2%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-bottom: 4%;
-    padding-top: 3%;
-}
-
-.text {
-    padding-left: 4%;
+    justify-content: space-between;
 }
 
 .text p{
@@ -31,37 +27,26 @@
     margin-bottom: 2%;
 }
 
+.h2 p{
+    font-size:28px;
+}
+
 .text2 p{
     margin-bottom: 0;
     font-style: italic;
 }
 
 .text2 {
-    padding-top: 2%;
+    padding-top: 1%;
 }
 
 .featuresList {
     list-style-type: disc;
 }
 
-.featuresList li {
+li {
     font-family: 'Jura', sans-serif;
     font-size: 20px;
     font-weight: bold;
-    color: #6C3B1D;
-}
-
-.contacts {
-    padding-bottom: 3%;
-    padding-top: 2%;
-}
-
-.contacts p{
-    font-size: 20px;
-    color: #6C3B1D;
-}
-
-.contacts button{
-    font-size: 20px;
     color: #6C3B1D;
 }

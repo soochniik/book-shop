@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Order from './pages/Order';
 import Book from './pages/Book';
 import AboutUs from './pages/AboutUs';
+import Fest from './pages/Fest';
 import { Header } from './components/header';
 import './global.css';
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/book" element={<Book />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/fest" element={<Fest />} />
       </Routes>
     </BrowserRouter>
   );
