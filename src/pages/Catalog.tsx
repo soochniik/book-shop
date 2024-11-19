@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '../components/button';
 import { useNavigate } from 'react-router-dom';
-import sale from '../assets/Sale.svg';
-import nbook from '/Book13.svg';
-import styles from './styles/home.module.css';
-import { Book } from './booksData'
+import styles from './styles/catalog.module.css';
+import { Book } from './booksData';
 
-const Home: React.FC = () => {
+const Catalog: React.FC = () => {
     const navigate = useNavigate();
     const [books, setBooks] = useState<Book[]>([]);
 
@@ -23,10 +21,11 @@ const Home: React.FC = () => {
 
         fetchBooks();
     }, []);
-    
-    const renderBooks = (category: 'bestsellers' | 'recommended') => {
-        return books
-            .filter(book => book.category === category)
+
+    const renderBooks = () => {
+        const sortedBooks = books.sort((a, b) => a.title.localeCompare(b.title));
+
+        return sortedBooks
             .map(book => (
                 <div key={book.id} className={styles.book}>
                     <div className={styles.bookImage} onClick={() => navigate(`/book?id=${book.id}`)}>
@@ -52,24 +51,19 @@ const Home: React.FC = () => {
     };
 
     return (
-        <div className={styles.home}> 
-            <div className={styles.sale}>
-                <img src={sale} alt="Sale"/>
-                <div className={styles.new}>
-                    <h1>Новинка</h1>
-                    <img src={nbook} alt="New" onClick={() => navigate(`/book?id=2`)}/>
-                </div>
-            </div>
-            <h1>Бестселлеры</h1>
+        <div className={styles.catalog}> 
+            <Button
+                label="Назад"
+                onClick={() => navigate(-1)}
+                color="menu"
+                size="small"
+            />
+            <h1>Каталог</h1>
             <div className={styles.books}>
-                {renderBooks('bestsellers')}
-            </div>
-            <h1>Рекомендуем</h1>
-            <div className={styles.books}>
-                {renderBooks('recommended')}
+                {renderBooks()}
             </div>
         </div>
     );
 };
 
-export default Home;
+export default Catalog;

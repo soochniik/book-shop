@@ -1,11 +1,9 @@
 .book {
     background-color: #F1F2EC;
-    padding-left: 2%;
+    padding: 2% 9% 2% 2%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom: 1%;
-    padding-top: 2%;
 }
 
 .book h1 {
@@ -70,13 +68,12 @@
 }
 
 .bookImage {
-    padding-bottom: 1%;
+    padding-bottom: 2%;
 }
 
 .bookPrice1 {
     color: #6C3B1D;
     font-size: 30px;
-    padding-top: 2%;
     padding-bottom: 2%;
 }
 

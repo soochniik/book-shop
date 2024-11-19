@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../components/button';
 import styles from './styles/book.module.css';
-import { booksData } from './booksData';
 import type { Book } from './booksData';
 
 function Book() {
@@ -11,14 +10,20 @@ function Book() {
     const [book, setBook] = useState<Book | null>(null);
 
     useEffect(() => {
-        const queryParams = new URLSearchParams(location.search);
-        const bookId = queryParams.get('id');
+        const bookId = new URLSearchParams(location.search).get('id');
 
         if (bookId) {
-            const selectedBook = booksData.find(book => book.id === parseInt(bookId, 10));
-            if (selectedBook) {
-                setBook(selectedBook);
-            }
+            const fetchBook = async () => {
+                try {
+                    const response = await fetch(`http://127.0.0.1:5000/api/books/${bookId}`);
+                    const data = await response.json();
+                    setBook(data);
+                } catch (error) {
+                    console.error('Ошибка при загрузке книги:', error);
+                }
+            };
+
+            fetchBook();
         }
     }, [location.search]);
 
@@ -38,7 +43,7 @@ function Book() {
                     </div>
                     <div className={styles.bookAbout}>
                         <div className={styles.bookImage}>
-                            <img src={book.imagebig} alt={book.title} />
+                            <img src={`/${book.imagebig}`} alt={book.title} />
                         </div>
                         <div className={styles.about}>
                             <div className={styles.bookDesc}>

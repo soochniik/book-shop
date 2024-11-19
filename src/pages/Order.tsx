@@ -3,29 +3,79 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../components/button';
 import Input from '../components/input';
 import styles from './styles/order.module.css';
-import { booksData, Book } from './booksData';
+import type { Book } from './booksData';
 
 function Order() {
     const navigate = useNavigate();
     const location = useLocation();
-    const [inputValue, setInputValue] = useState<string>('');
+    const [inputName, setInputName] = useState<string>('');
+    const [inputLast, setInputLast] = useState<string>('');
+    const [inputNumber, setInputNumber] = useState<string>('');
+    const [inputEmail, setInputEmail] = useState<string>('');
     const [book, setBook] = useState<Book | null>(null);
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
+    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputName(event.target.value);
+    };
+    const handleLastChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputLast(event.target.value);
+    };
+    const handleNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputNumber(event.target.value);
+    };
+    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputEmail(event.target.value);
     };
 
     useEffect(() => {
-        const queryParams = new URLSearchParams(location.search);
-        const bookId = queryParams.get('id');
+        const bookId = new URLSearchParams(location.search).get('id');
 
         if (bookId) {
-            const selectedBook = booksData.find(book => book.id === parseInt(bookId, 10));
-            if (selectedBook) {
-                setBook(selectedBook);
-            }
+            const fetchBook = async () => {
+                try {
+                    const response = await fetch(`http://127.0.0.1:5000/api/books/${bookId}`);
+                    const data = await response.json();
+                    setBook(data);
+                } catch (error) {
+                    console.error('Ошибка при загрузке книги:', error);
+                }
+            };
+
+            fetchBook();
         }
     }, [location.search]);
+
+    const handleOrderSubmit = async () => {
+        if (!book) return;
+
+        const orderData = {
+            first_name: inputName,
+            last_name: inputLast,
+            phone: inputNumber,
+            email: inputEmail,
+            book_id: book.id
+        };
+
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            });
+
+            if (response.ok) {
+                alert('Заказ оформлен!');
+                navigate('/');
+            } else {
+                alert('Ошибка при оформлении заказа');
+            }
+        } catch (error) {
+            console.error('Ошибка при отправке заказа:', error);
+            alert('Ошибка при оформлении заказа');
+        }
+    };
 
     return (
         <div className={styles.cart}>
@@ -39,7 +89,7 @@ function Order() {
             {book ? (
                 <div className={styles.book}>
                     <div className={styles.bookImage}>
-                        <img src={book.image} alt={book.title} />
+                        <img src={`/${book.image}`} alt={book.title} />
                     </div>
                     <div className={styles.bookAbout}>
                         <div className={styles.bookTitle}>
@@ -60,27 +110,27 @@ function Order() {
             <div className={styles.order}>
                 <Input
                     label="Имя"
-                    value={inputValue}
-                    onChange={handleInputChange}
+                    value={inputName}
+                    onChange={handleNameChange}
                 />
                 <Input
                     label="Фамилия"
-                    value={inputValue}
-                    onChange={handleInputChange}
+                    value={inputLast}
+                    onChange={handleLastChange}
                 />
                 <Input
                     label="Номер телефона"
-                    value={inputValue}
-                    onChange={handleInputChange}
+                    value={inputNumber}
+                    onChange={handleNumberChange}
                 />
                 <Input
                     label="E-mail"
-                    value={inputValue}
-                    onChange={handleInputChange}
+                    value={inputEmail}
+                    onChange={handleEmailChange}
                 />
                 <Button
                     label="Оформить заказ"
-                    onClick={() => alert('Заказ оформлен!')}
+                    onClick={handleOrderSubmit}
                     color="button"
                     size="small"
                 />

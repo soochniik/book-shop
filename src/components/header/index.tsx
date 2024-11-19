@@ -16,6 +16,12 @@ export const Header = () => {
                     </li>
                     <li className={styles.navItem}>
                         <Button
+                            label="Каталог"
+                            onClick={() => navigate('/catalog')}
+                            color="menu"
+                            size="small"
+                        />
+                        <Button
                             label="О нас"
                             onClick={() => navigate('/about-us')}
                             color="menu"
