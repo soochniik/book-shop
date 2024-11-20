@@ -5,7 +5,7 @@ export interface Book {
     price: number;
     image: string;
     imagebig: string;
-    category: 'bestsellers' | 'recommended';
+    category: 'bestsellers' | 'recommended' | 'catalog';
     desc: string;
     publish: string;
     brand: string;

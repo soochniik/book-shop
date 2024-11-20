@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '../components/button';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles/catalog.module.css';
-import { Book } from './booksData';
+import { Book } from '../types/booksData';
 
 const Catalog: React.FC = () => {
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Catalog: React.FC = () => {
         return sortedBooks
             .map(book => (
                 <div key={book.id} className={styles.book}>
-                    <div className={styles.bookImage} onClick={() => navigate(`/book?id=${book.id}`)}>
+                    <div className={styles.bookImage} onClick={() => navigate(`/book/${book.id}`)}>
                         <img src={`/${book.image}`} alt={book.title} />
                     </div>
                     <div className={styles.bookPrice}>
@@ -42,7 +42,7 @@ const Catalog: React.FC = () => {
                     </div>
                     <Button
                         label="Оформить заказ"
-                        onClick={() => navigate(`/order?id=${book.id}`)}
+                        onClick={() => navigate(`/order/${book.id}`)}
                         color="button"
                         size="small"
                     />

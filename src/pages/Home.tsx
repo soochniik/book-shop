@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import sale from '../assets/Sale.svg';
 import nbook from '/Book13.svg';
 import styles from './styles/home.module.css';
-import { Book } from './booksData'
+import { Book } from '../types/booksData'
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
             .filter(book => book.category === category)
             .map(book => (
                 <div key={book.id} className={styles.book}>
-                    <div className={styles.bookImage} onClick={() => navigate(`/book?id=${book.id}`)}>
+                    <div className={styles.bookImage} onClick={() => navigate(`/book/${book.id}`)}>
                         <img src={`/${book.image}`} alt={book.title} />
                     </div>
                     <div className={styles.bookPrice}>
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
                     </div>
                     <Button
                         label="Оформить заказ"
-                        onClick={() => navigate(`/order?id=${book.id}`)}
+                        onClick={() => navigate(`/order/${book.id}`)}
                         color="button"
                         size="small"
                     />
@@ -54,10 +54,10 @@ const Home: React.FC = () => {
     return (
         <div className={styles.home}> 
             <div className={styles.sale}>
-                <img src={sale} alt="Sale"/>
+                <img src={sale} alt="Sale" onClick={() => navigate(`/fest`)} />
                 <div className={styles.new}>
                     <h1>Новинка</h1>
-                    <img src={nbook} alt="New" onClick={() => navigate(`/book?id=2`)}/>
+                    <img src={nbook} alt="New" onClick={() => navigate(`/book/2`)}/>
                 </div>
             </div>
             <h1>Бестселлеры</h1>

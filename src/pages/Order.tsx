@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { Button } from '../components/button';
 import Input from '../components/input';
 import styles from './styles/order.module.css';
-import type { Book } from './booksData';
+import type { Book } from '../types/booksData';
 
 function Order() {
     const navigate = useNavigate();
     const location = useLocation();
+    const {bookId} = useParams();
     const [inputName, setInputName] = useState<string>('');
     const [inputLast, setInputLast] = useState<string>('');
     const [inputNumber, setInputNumber] = useState<string>('');
     const [inputEmail, setInputEmail] = useState<string>('');
     const [book, setBook] = useState<Book | null>(null);
 
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputName(event.target.value);
-    };
-    const handleLastChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputLast(event.target.value);
-    };
-    const handleNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputNumber(event.target.value);
-    };
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setInputEmail(event.target.value);
-    };
-
     useEffect(() => {
-        const bookId = new URLSearchParams(location.search).get('id');
-
+        
         if (bookId) {
             const fetchBook = async () => {
                 try {
@@ -111,22 +98,22 @@ function Order() {
                 <Input
                     label="Имя"
                     value={inputName}
-                    onChange={handleNameChange}
+                    onChange={(event)=>setInputName(event.target.value)}
                 />
                 <Input
                     label="Фамилия"
                     value={inputLast}
-                    onChange={handleLastChange}
+                    onChange={(event)=>setInputLast(event.target.value)}
                 />
                 <Input
                     label="Номер телефона"
                     value={inputNumber}
-                    onChange={handleNumberChange}
+                    onChange={(event)=>setInputNumber(event.target.value)}
                 />
                 <Input
                     label="E-mail"
                     value={inputEmail}
-                    onChange={handleEmailChange}
+                    onChange={(event)=>setInputEmail(event.target.value)}
                 />
                 <Button
                     label="Оформить заказ"

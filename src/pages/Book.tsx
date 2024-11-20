@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { Button } from '../components/button';
 import styles from './styles/book.module.css';
-import type { Book } from './booksData';
+import type { Book } from '../types/booksData';
 
 function Book() {
     const navigate = useNavigate();
     const location = useLocation();
+    const {bookId} = useParams();
     const [book, setBook] = useState<Book | null>(null);
 
     useEffect(() => {
-        const bookId = new URLSearchParams(location.search).get('id');
 
         if (bookId) {
             const fetchBook = async () => {
