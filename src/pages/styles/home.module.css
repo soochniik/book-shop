@@ -15,12 +15,7 @@
 }
 
 .sale img {
-    transition: box-shadow 0.3s ease;
     cursor: pointer;
-}
-
-.sale img:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .new {

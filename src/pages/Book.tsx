@@ -78,7 +78,7 @@ function Book() {
                     </div>
                     <Button
                         label="Оформить заказ"
-                        onClick={() => navigate(`/order?id=${book.id}`)}
+                        onClick={() => navigate(`/order/${book.id}`)}
                         color="button"
                         size="small"
                     />
